@@ -48,6 +48,7 @@ document.getElementById("search").onclick = async function searchWord() {
         }
     }
 
+    
     if (matchWord !== null) {
         resultText = resultText + "Mots correspondants à la recherche :\n\n"
         if (matchWord.noun !== null) {
