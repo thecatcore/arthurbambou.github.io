@@ -88862,43 +88862,47 @@ document.getElementById("search").onclick = async function searchWord() {
         if (atäpaDictionnary.matchWord.time !== null) {
             atäpaDictionnary.resultText = atäpaDictionnary.resultText + atäpaDictionnary.matchWord.atäpa + " (t.) = " + atäpaDictionnary.matchWord.time + "\n"
         }
+    }
+    if (atäpaDictionnary.startingWords.length > 0) {
         atäpaDictionnary.resultText = atäpaDictionnary.resultText + "\n\n\n"
+        atäpaDictionnary.resultText = atäpaDictionnary.resultText + "Mots commençant par la recherche : \n"
+        for (let index = 0; index < atäpaDictionnary.startingWords.length; index++) {
+            const word = atäpaDictionnary.startingWords[index];
+            if (word.noun === null && word.verb === null && word.modifier === null && word.time === null) {continue;}
+            atäpaDictionnary.resultText = atäpaDictionnary.resultText + "\n"
+            if (word.noun !== null) {
+                atäpaDictionnary.resultText = atäpaDictionnary.resultText + word.atäpa + " (n.) = " + word.noun + "\n"
+            }
+            if (word.verb !== null) {
+                atäpaDictionnary.resultText = atäpaDictionnary.resultText + "a" + word.atäpa + " (v.) = " + word.verb + "\n"
+            }
+            if (word.modifier !== null) {
+                atäpaDictionnary.resultText = atäpaDictionnary.resultText + "i" + word.atäpa + " (m.) = " + word.modifier + "\n"
+            }
+            if (word.time !== null) {
+                atäpaDictionnary.resultText = atäpaDictionnary.resultText + word.atäpa + " (t.) = " + word.time + "\n"
+            }
+        }
     }
-    atäpaDictionnary.resultText = atäpaDictionnary.resultText + "Mots commençant par la recherche : \n"
-    for (let index = 0; index < atäpaDictionnary.startingWords.length; index++) {
-        const word = atäpaDictionnary.startingWords[index];
-        if (word.noun === null && word.verb === null && word.modifier === null && word.time === null) {continue;}
-        atäpaDictionnary.resultText = atäpaDictionnary.resultText + "\n"
-        if (word.noun !== null) {
-            atäpaDictionnary.resultText = atäpaDictionnary.resultText + word.atäpa + " (n.) = " + word.noun + "\n"
-        }
-        if (word.verb !== null) {
-            atäpaDictionnary.resultText = atäpaDictionnary.resultText + "a" + word.atäpa + " (v.) = " + word.verb + "\n"
-        }
-        if (word.modifier !== null) {
-            atäpaDictionnary.resultText = atäpaDictionnary.resultText + "i" + word.atäpa + " (m.) = " + word.modifier + "\n"
-        }
-        if (word.time !== null) {
-            atäpaDictionnary.resultText = atäpaDictionnary.resultText + word.atäpa + " (t.) = " + word.time + "\n"
-        }
-    }
-    atäpaDictionnary.resultText = atäpaDictionnary.resultText + "\n\n\n"
-    atäpaDictionnary.resultText = atäpaDictionnary.resultText + "Mots se finissant par la recherche : \n"
-    for (let index = 0; index < atäpaDictionnary.endingWords.length; index++) {
-        const word = atäpaDictionnary.endingWords[index];
-        if (word.noun === null && word.verb === null && word.modifier === null && word.time === null) {continue;}
-        atäpaDictionnary.resultText = atäpaDictionnary.resultText + "\n"
-        if (word.noun !== null) {
-            atäpaDictionnary.resultText = atäpaDictionnary.resultText + word.atäpa + " (n.) = " + word.noun + "\n"
-        }
-        if (word.verb !== null) {
-            atäpaDictionnary.resultText = atäpaDictionnary.resultText + "a" + word.atäpa + " (v.) = " + word.verb + "\n"
-        }
-        if (word.modifier !== null) {
-            atäpaDictionnary.resultText = atäpaDictionnary.resultText + "i" + word.atäpa + " (m.) = " + word.modifier + "\n"
-        }
-        if (word.time !== null) {
-            atäpaDictionnary.resultText = atäpaDictionnary.resultText + word.atäpa + " (t.) = " + word.time + "\n"
+    if (atäpaDictionnary.endingWords.length > 0) {
+        atäpaDictionnary.resultText = atäpaDictionnary.resultText + "\n\n\n"
+        atäpaDictionnary.resultText = atäpaDictionnary.resultText + "Mots se finissant par la recherche : \n"
+        for (let index = 0; index < atäpaDictionnary.endingWords.length; index++) {
+            const word = atäpaDictionnary.endingWords[index];
+            if (word.noun === null && word.verb === null && word.modifier === null && word.time === null) {continue;}
+            atäpaDictionnary.resultText = atäpaDictionnary.resultText + "\n"
+            if (word.noun !== null) {
+                atäpaDictionnary.resultText = atäpaDictionnary.resultText + word.atäpa + " (n.) = " + word.noun + "\n"
+            }
+            if (word.verb !== null) {
+                atäpaDictionnary.resultText = atäpaDictionnary.resultText + "a" + word.atäpa + " (v.) = " + word.verb + "\n"
+            }
+            if (word.modifier !== null) {
+                atäpaDictionnary.resultText = atäpaDictionnary.resultText + "i" + word.atäpa + " (m.) = " + word.modifier + "\n"
+            }
+            if (word.time !== null) {
+                atäpaDictionnary.resultText = atäpaDictionnary.resultText + word.atäpa + " (t.) = " + word.time + "\n"
+            }
         }
     }
     if (atäpaDictionnary.containingWords.length > 0) {
@@ -88938,13 +88942,13 @@ document.getElementById("search").onclick = async function searchWord() {
         if (searchValue === rowInfo.noun || searchValue === rowInfo.verb || searchValue === rowInfo.modifier || searchValue === rowInfo.time) {
             frenchDictionnary.matchWord = rowInfo;
             continue;
-        } else if (rowInfo.noun.startsWith(searchValue) || rowInfo.verb.startsWith(searchValue) || rowInfo.modifier.startsWith(searchValue) || rowInfo.time.startsWith(searchValue)) {
+        } else if (startWith(searchValue, rowInfo.noun) || startWith(searchValue, rowInfo.verb) || startWith(searchValue, rowInfo.modifier) || startWith(searchValue, rowInfo.time)) {
             frenchDictionnary.startingWords.push(rowInfo);
             continue;
-        } else if (rowInfo.noun.endsWith(searchValue) || rowInfo.verb.endsWith(searchValue) || rowInfo.modifier.endsWith(searchValue) || rowInfo.time.endsWith(searchValue)) {
+        } else if (endWith(searchValue, rowInfo.noun) || endWith(searchValue, rowInfo.verb) || endWith(searchValue, rowInfo.modifier) || endWith(searchValue, rowInfo.time)) {
             frenchDictionnary.endingWords.push(rowInfo);
             continue;
-        } else if (rowInfo.noun.includes(searchValue) || rowInfo.verb.includes(searchValue) || rowInfo.modifier.includes(searchValue) || rowInfo.time.includes(searchValue)) {
+        } else if (include(searchValue, rowInfo.noun) || include(searchValue, rowInfo.verb) || include(searchValue, rowInfo.modifier) || include(searchValue, rowInfo.time)) {
             frenchDictionnary.containingWords.push(rowInfo);
             continue;
         }
@@ -88986,5 +88990,26 @@ document.getElementById("search").onclick = async function searchWord() {
 
     document.getElementById("result-atapa").innerText = atäpaDictionnary.resultText
     document.getElementById("result-french").innerText = frenchDictionnary.resultText
+}
+
+function startWith(search, word) {
+    if (search !== null) {
+        return word.startsWith(search)
+    }
+    return false;
+}
+
+function endWith(search, word) {
+    if (search !== null) {
+        return word.endsWith(search)
+    }
+    return false;
+}
+
+function include(search, word) {
+    if (search !== null) {
+        return word.includes(search)
+    }
+    return false;
 }
 },{"dotenv":223,"google-spreadsheet":253}]},{},[331]);
