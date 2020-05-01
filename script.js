@@ -88790,7 +88790,6 @@ document.getElementById("search").onclick = async function searchWord() {
         client_email: "GOOGLE_SERVICE_ACCOUNT_EMAIL",
         private_key: "GOOGLE_PRIVATE_KEY",
     });
-    console.log("logged")
     await doc.loadInfo();
     const dictionnarySheet = doc.sheetsByIndex[0];
     const rows = await dictionnarySheet.getRows();
