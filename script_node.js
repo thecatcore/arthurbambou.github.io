@@ -4,10 +4,10 @@ const {GoogleSpreadsheet} = require('google-spreadsheet');
 const doc = new GoogleSpreadsheet('1HSpvx8jLMY76B0qX-IX6slmhbQn-5RPScapDPMWqHS0');
 document.getElementById("search").onclick = async function searchWord() {
     // await doc.useServiceAccountAuth(creds);
-    console.log(process.env.GOOGLE_PRIVATE_KEY)
+    console.log("GOOGLE_PRIVATE_KEY")
     await doc.useServiceAccountAuth({
-        client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
-        private_key: process.env.GOOGLE_PRIVATE_KEY,
+        client_email: "GOOGLE_SERVICE_ACCOUNT_EMAIL",
+        private_key: "GOOGLE_PRIVATE_KEY",
     });
     await doc.loadInfo();
     const dictionnarySheet = doc.sheetsByIndex[0];
