@@ -88864,6 +88864,7 @@ document.getElementById("search").onclick = async function searchWord() {
         }
     }
     if (atäpaDictionnary.startingWords.length > 0) {
+        console.log(atäpaDictionnary.startingWords.toString())
         atäpaDictionnary.resultText = atäpaDictionnary.resultText + "\n\n\n"
         atäpaDictionnary.resultText = atäpaDictionnary.resultText + "Mots commençant par la recherche : \n"
         for (let index = 0; index < atäpaDictionnary.startingWords.length; index++) {
@@ -88885,6 +88886,7 @@ document.getElementById("search").onclick = async function searchWord() {
         }
     }
     if (atäpaDictionnary.endingWords.length > 0) {
+        console.log(atäpaDictionnary.endingWords.toString())
         atäpaDictionnary.resultText = atäpaDictionnary.resultText + "\n\n\n"
         atäpaDictionnary.resultText = atäpaDictionnary.resultText + "Mots se finissant par la recherche : \n"
         for (let index = 0; index < atäpaDictionnary.endingWords.length; index++) {
@@ -88906,6 +88908,7 @@ document.getElementById("search").onclick = async function searchWord() {
         }
     }
     if (atäpaDictionnary.containingWords.length > 0) {
+        console.log(atäpaDictionnary.containingWords.toString())
         atäpaDictionnary.resultText = atäpaDictionnary.resultText + "\n\n\n"
         atäpaDictionnary.resultText = atäpaDictionnary.resultText + "Mots contenant la recherche :"
         for (let index = 0; index < atäpaDictionnary.containingWords.length; index++) {
