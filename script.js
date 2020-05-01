@@ -88993,21 +88993,21 @@ document.getElementById("search").onclick = async function searchWord() {
 }
 
 function startWith(search, word) {
-    if (search !== null) {
+    if (word !== null) {
         return word.startsWith(search)
     }
     return false;
 }
 
 function endWith(search, word) {
-    if (search !== null) {
+    if (word !== null) {
         return word.endsWith(search)
     }
     return false;
 }
 
 function include(search, word) {
-    if (search !== null) {
+    if (word !== null) {
         return word.includes(search)
     }
     return false;
