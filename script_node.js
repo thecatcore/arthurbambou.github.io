@@ -1,3 +1,4 @@
+require('dotenv').config()
 const {GoogleSpreadsheet} = require('google-spreadsheet');
 // const creds = require('./papillotebot-199023-83905358f43d.json'); // the file saved above
 const doc = new GoogleSpreadsheet('1HSpvx8jLMY76B0qX-IX6slmhbQn-5RPScapDPMWqHS0');
