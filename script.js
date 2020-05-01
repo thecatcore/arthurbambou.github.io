@@ -88908,6 +88908,6 @@ document.getElementById("search").onclick = async function searchWord() {
             resultText = resultText + word.atäpa + " (t.) = " + word.time + "\n"
         }
     }
-    document.getElementById("result").innerText = resultText
+    document.getElementById("result-atapa").innerText = resultText
 }
 },{"dotenv":223,"google-spreadsheet":253}]},{},[331]);
