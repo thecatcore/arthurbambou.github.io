@@ -1,8 +1,12 @@
 const {GoogleSpreadsheet} = require('google-spreadsheet');
-const creds = require('./papillotebot-199023-83905358f43d.json'); // the file saved above
+// const creds = require('./papillotebot-199023-83905358f43d.json'); // the file saved above
 const doc = new GoogleSpreadsheet('1HSpvx8jLMY76B0qX-IX6slmhbQn-5RPScapDPMWqHS0');
 document.getElementById("search").onclick = async function searchWord() {
-    await doc.useServiceAccountAuth(creds);
+    // await doc.useServiceAccountAuth(creds);
+    await doc.useServiceAccountAuth({
+        client_email: process.env.GOOGLE_SERVICE_ACCOUNT_EMAIL,
+        private_key: process.env.GOOGLE_PRIVATE_KEY,
+    });
     await doc.loadInfo();
     const dictionnarySheet = doc.sheetsByIndex[0];
     const rows = await dictionnarySheet.getRows();
